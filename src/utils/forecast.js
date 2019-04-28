@@ -9,13 +9,13 @@ const forecast = (longitude, latitude, callback) => {
             code,
             error: err,
             hourly: { summary },
-            currently: { temperature, precipProbability } } } ) => {
+            currently: { temperature, precipProbability, summary : now } } } ) => {
         if (error) {
             callback('Could not connect to location service.', undefined);
         } else if (code === 400) {
             callback(err, undefined)
         } else {
-            const prognos = summary + ' Temperaturen är ' + temperature + ' grader C. Det är ' + precipProbability + '% sannolikhet för nederbörd.'
+            const prognos = summary + ' Just nu är det ' + now + '. Temperaturen är ' + temperature + ' grader C. Det är ' + precipProbability + '% sannolikhet för nederbörd.'
 
             callback(undefined, prognos)
         }

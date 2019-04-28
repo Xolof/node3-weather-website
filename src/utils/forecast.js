@@ -15,7 +15,7 @@ const forecast = (longitude, latitude, callback) => {
         } else if (code === 400) {
             callback(err, undefined)
         } else {
-            const prognos = summary + ' Just nu är det ' + now + '. Temperaturen är ' + temperature + ' grader C. Det är ' + precipProbability + '% sannolikhet för nederbörd.'
+            const prognos = summary + ' Just nu är det ' + now.toLowerCase() + '. Temperaturen är ' + temperature + ' grader C. Det är ' + precipProbability + '% sannolikhet för nederbörd.'
 
             callback(undefined, prognos)
         }
